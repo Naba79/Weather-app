@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app1/app/app.bottomsheets.dart';
 import 'package:weather_app1/app/app.dialogs.dart';
 import 'package:weather_app1/app/app.locator.dart';
@@ -8,6 +9,9 @@ import 'package:stacked_services/stacked_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  await dotenv.load(fileName: ".env");
+
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
